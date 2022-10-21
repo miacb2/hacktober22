@@ -1,1 +1,44 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hactoberfest 2022</title>
+</head>
+<body>
+    <header>
+        <h1>Spooky Algorythms</h1>
+    </header>
+    <h2>Racecar.py</h2>
+    <p>Solved by Xayan</p>
+    <p>Based on target number given, I'm to find the shortest path to the target number with an acceleration of 2 and reverse move. I then return the least amount of moves it took in the path</p>
+    <pre><code>
+        class Solution(object): 
+            def racecar(self, target):
+                queue = collections.deque([(0,0,1)]) #in a pile. the first thing put in is last, 
+                #and the first thing pulled out is first, move, position, speed 
+                #using a Breadth first search. we are searching layer by layer for the answer by 
+                #using the neighbors of the starting position of 0
+                visited = set() #holds the positions we have already been to.
+                while queue:
+                    moves, pos, speed = queue.popleft() #returns values from left to right in the queue list.
+                    if pos == target:   #if pos equals target on the leaf, it returns moves and ends the loop
+                        return moves
+                    if (pos,speed) in visited:  #in the binary tree if it finds a repeating leaf, 
+                        continue                #it doesn't continue
+                    else:
+                        visited.add((pos,speed))#any leaf that hasn't been visted is added to the visited pile
+                        queue.append((moves + 1, pos + speed, speed * 2))
+                    #reverse in two situations, overshootin the target or not at position but going backwards.
+                        if(pos + speed > target and speed > 0) or (pos + speed < target and speed < 0 ):
+                            speed = -1 if speed > 0 else 1
+                            queue.append((moves + 1, pos, speed ))
+    </code></pre>
+</body>
+</html>
+Footer
+© 2022 GitHub, Inc.
+Footer navigation
+Terms
+Privacy
