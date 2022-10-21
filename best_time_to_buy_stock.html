@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <h1>Spooky Algorithms</h1>
+    </header>
+    <h2>Best Time to Buy and Sell Stock</h2>
+    <pre>
+        <code>
+            class Solution(object):
+                def maxProfit(self, prices):
+                    """
+                    :type prices: List[int]
+                    :rtype: int
+                    """
+                    ans, carry = 0, prices[0]
+                    for i in range(1, len(prices)):
+                        carry = min(carry, prices[i])
+                        ans = max(ans, prices[i] - carry)
+                    return ans
+        </code>
+    </pre>
+</body>
+</html>
