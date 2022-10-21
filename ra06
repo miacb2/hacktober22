@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hactoberfest 2022</title>
+</head>
+<body>
+    <header>
+        <h1>Spooky Algorythms</h1>
+    </header>
+    <h2>
+    
+    class Solution {
+    public int[] twoSum(int[] nums, int target) {
+        
+        
+        Map<Integer, Integer> map = new HashMap<>();
+        
+        for(int i=0; i<nums.length; i++){
+              map.put(nums[i], i);
+           }   
+            
+            
+            for(int i=0; i<nums.length; i++){
+                
+                int difference = target - nums[i];
+                
+                if(map.containsKey(difference)&& map.get(difference) !=i) {
+                    return new int[] {map.get(difference), i};
+                }
+            }
+                
+                return nums;
+            
+        
+    }
+}
+
+</h2>
+    <p>Description</p>
+    <pre><code>
+        
+    </code></pre>
+    <h2>Name Program </h2>
+    <p>Java</p>
+    <p>Description</p>
+    <pre><code>
+        
+    </code></pre>
+</body>
+</html>
