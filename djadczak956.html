@@ -59,3 +59,39 @@
                 matrix[row].reverse()
             return matrix    
 </code></pre>
+
+<h2>Valid Parentheses</h2>
+<p>This program asks for valid opening and closing parentheses to be present in the given string. To check, I used a stack and added and removed the 
+    opening parentheses when necessary.</p>
+<p>Language: Java</p>
+<pre><code>
+    class Solution {
+        public boolean isValid(String s) {
+            // Matching opening and closing brackets
+            Map<Character, Character> matches = new HashMap<>();
+            matches.put('(', ')');
+            matches.put('[', ']');
+            matches.put('{', '}');
+            
+            Stack<Character> parentheses = new Stack<>();
+            for (int i = 0; i < s.length(); i++) {
+                char character = s.charAt(i);
+                if (matches.containsKey(character)) {
+                    parentheses.push(character);
+                } else {
+                    if (parentheses.isEmpty()) {    
+                        return false;   // Returns false if there are no starting parentheses
+                    }
+                    // Removes top element and keeps going until empty
+                    char token = parentheses.pop(); 
+                    if (!matches.containsKey(token) || matches.get(token) != character) {
+                        return false;
+                    }
+                }
+            }
+            return parentheses.isEmpty();   // Empty stack means that every opening parethesis has a corresponding closing
+        }
+    }
+    
+     
+</code></pre>
