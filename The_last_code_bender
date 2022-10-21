@@ -1,1 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hactoberfest 2022</title>
+</head>
+<body>
+    <header>
+        <h1>Spooky Algorythms</h1>
+    </header>
+    <h2>BNutritions.py</h2>
+    <p>Solved by Xayan</p>
+    <p>prints the nutrition value of fruits based on the fruit input from the fda</p>
+    <pre><code>
+        fruit = input("Give me your food ").lower() #FUNNELS THE INPUT INCASE OF CAPITALIZATION
 
+        fruits = {                  #THE LIST OF FRUITS
+            "apple":"130",
+            "avocado":"50",
+            "banana":"110",
+            "cantaloupe":"50",
+            "grapefruit":"60",
+            "honeydew melon":"50",
+            "grapes":"90",
+            "kiwifruit":"90",
+            "lemon":"15",
+            "lime":"20",
+            "nectarine":"60",
+            "orange":"80",
+            "peach":"60",
+            "pear":"100",
+            "pineapple":"50",
+            "plums":"70",
+            "strawberries":"50",
+            "sweet cherries":"100",
+            "tangerine":"50",
+            "watermelon":"80",
+        }
+
+        nutrition = fruits.get(fruit) if not(fruits.get(fruit) == None) else "" #GIVES FRUIT VALUE IF FRUIT EXISTS
+        print(nutrition) #PRINTS FRUIT
+    </code></pre>
+</body>
+</html>
