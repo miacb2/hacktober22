@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hactoberfest 2022</title>
+</head>
+<body>
+    <header>
+        <h1>Spooky Algorythms</h1>
+    </header>
+    <h2>Majority Element - LeetCode</h2>
+    <p>Given an array nums of size n, return the majority element.</p>
+  <p>Done in Python</p>
+    <pre><code>
+        class Solution:
+          def majorityElement(self, nums: List[int]) -> int:
+            nums.sort()
+            counts = [0] * (nums[-1] + 1)
+            for i in nums:
+              counts[i] += 1
+            max = 0
+            maxI = 0
+            for i in range(len(counts)):
+              if counts[i] > max:
+                  max = counts[i]
+                  maxI = i
+            return(maxI)
+    </code></pre>
+</body>
+</html>
