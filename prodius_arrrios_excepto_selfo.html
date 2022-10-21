@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+            <h1>Product of Array Except Self</h1>
+    </header>
+    <p>Return the array of the products of the other elements except for itself</p>
+    <p>Solution:</p>
+    <pre>
+        <code>
+            class Solution(object):
+                def productExceptSelf(self, nums):
+                    """
+                    :type nums: List[int]
+                    :rtype: List[int]
+                    """
+                    arr = [1] * (len(nums))
+                    
+                    prefix = 1
+                    for i in range(len(nums)):
+                        arr[i] = prefix
+                        prefix *= nums[i]
+                    postfix = 1
+                    
+                    for i in range(len(nums) -1, -1, -1):
+                        arr[i] *= postfix
+                        postfix *= nums[i]
+                        print(nums[i])
+                    
+                    return arr
+        </code>
+    </pre>
+</body>
+</html>
