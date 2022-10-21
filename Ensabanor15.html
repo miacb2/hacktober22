@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hactoberfest 2022</title>
+</head>
+<body>
+    <header>
+    <h1>Spooky Algorythms</h1>
+    </header>
+    <h2>Letter Combinations of a Phone Number (Leet Code)</h2>
+    <p> Python3 </p>
+    <p>This code wants you to to take a string using the digits 2-9 and each of these digits have a few letters assigned to them like a phone and when these numbers are 
+    put in the code will return all possible string combinations. This problem was solved using a key and for loops allowing all possible combinations of the letters.
+    </p>
+    <pre><code>
+    class Solution:
+    def letterCombinations(self, digits: str) -> List[str]:
+        # This is the key for all of the letters that are equal to each number
+        key = {
+             "2": ["a","b","c"], 
+             "3": ["d","e","f"], 
+             "4": ["g","h","i"],  
+             "5": ["j","k","l"],
+             "6": ["m","n","o"], 
+             "7": ["p","q","r","s"], 
+             "8": ["t","u","v"], 
+             "9": ["w","x","y", "z"],
+        }
+       # These if statements are for all of the possiblites so that combo runs because if say the input is 24 and y and z are empty it will make the output empty
+        if len(digits) == 1:  
+            x = key[digits[0]]
+            # combo first uses join so that the letters will come together and then uses a for loop to make sure it gets all of the words in from the key and assings to the digits associated with the words.
+            combo = [''.join((a,)) for a in x]
+            # this returns all of the words after they have been combined.
+            return(combo)
+        elif len(digits) == 2: 
+            x = key[digits[0]]
+            y = key[digits[1]]
+            combo = [''.join((a,b,)) for a in x for b in y]
+            return(combo)
+        elif len(digits) == 3: 
+            x = key[digits[0]]
+            y = key[digits[1]]
+            z = key[digits[2]]
+            combo = [''.join((a,b,c,)) for a in x for b in y for c in z]
+            return(combo)
+        elif len(digits) >= 4:
+            x = key[digits[0]]
+            y = key[digits[1]]
+            z = key[digits[2]]
+            f = key[digits[3]]
+            combo = [''.join((a,b,c,d)) for a in x for b in y for c in z for d in f]
+            return(combo)
+    </code></pre>
+</body>
+</html>
