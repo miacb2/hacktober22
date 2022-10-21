@@ -1,97 +1,115 @@
-<h2>Unique Paths</h2>
-<p>This problem would give the user with an mxn grid and the user would have to find the number of unique paths that could be traveled. You could only move down and right.
-    The path could be represented as a string of "rights" and "downs". You could calculate the number of unique permutations that could be made on the string.
-</p>
-<p>Language: Python</p>
-<pre><code>
-    import math
-
-    class Solution:
-        def uniquePaths(self, m: int, n: int) -> int:
-            return int(math.factorial(m - 1 + n - 1) / (math.factorial(m - 1) * math.factorial(n - 1)))
-</code></pre>
-
-<h2>TwoSum</h2>
-<p>Given a list of integers, return the indicies of the two elements that add up to the target. The two numbers that add up to the target cannot be the same.</p>
-<p>Language: Java</p>
-<pre><code>
-    import java.util.*;
-
-    public class TwoSum {
-        public int[] twoSum(int[] nums, int target) {
-            int[] solution = new int[2];
-            List<Integer> indices = new ArrayList<>();
-            // Create HashSet and add elements from list to it
-            Set<Integer> numbers = new HashSet<>();
-
-            for (int i = 0; i < nums.length; i++) {
-                numbers.add(nums[i]);
-                indices.add(nums[i]);
-                int val1 = nums[i];
-                int val2 = target - val1;
-                if (numbers.contains(val2) && indices.indexOf(val2) != i) {
-                    solution[0] = i;
-                    solution[1] = indices.indexOf(val2);
-                    
-                }
-            }
-            
-            return solution;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>djadczak956</title>
+    <style>
+        * {
+            color: white;
+            background-color: black;
         }
-    }
-</code></pre>
-
-<h2>Rotate Matrix</h2>
-<p>This program would give a matrix and you would have to rotate it 270 degrees in place. This means that you must directly manipulate the matrix. The matrix is always square.</p>
-<pre><code>
-    class Solution:
-        def rotate(self, matrix: list[list[int]]) -> None:
-            size = len(matrix)  # Given an n x n matrix
-
-            # Handles the transposing by swapping values in complementary positions
-            for row in range(size):
-                for col in range(row+1, size):
-                    matrix[col][row], matrix[row][col] = matrix[row][col], matrix[col][row]
-            
-            # Reverses each row in the matrix with ease because Python
-            for row in range(len(matrix)):
-                matrix[row] = list(matrix[row])
-                matrix[row].reverse()
-            return matrix    
-</code></pre>
-
-<h2>Valid Parentheses</h2>
-<p>This program asks for valid opening and closing parentheses to be present in the given string. To check, I used a stack and added and removed the 
-    opening parentheses when necessary.</p>
-<p>Language: Java</p>
-<pre><code>
-    class Solution {
-        public boolean isValid(String s) {
-            // Matching opening and closing brackets
-            Map<Character, Character> matches = new HashMap<>();
-            matches.put('(', ')');
-            matches.put('[', ']');
-            matches.put('{', '}');
-            
-            Stack<Character> parentheses = new Stack<>();
-            for (int i = 0; i < s.length(); i++) {
-                char character = s.charAt(i);
-                if (matches.containsKey(character)) {
-                    parentheses.push(character);
-                } else {
-                    if (parentheses.isEmpty()) {    
-                        return false;   // Returns false if there are no starting parentheses
-                    }
-                    // Removes top element and keeps going until empty
-                    char token = parentheses.pop(); 
-                    if (!matches.containsKey(token) || matches.get(token) != character) {
-                        return false;
-                    }
-                }
-            }
-            return parentheses.isEmpty();   // Empty stack means that every opening parethesis has a corresponding closing
-        }
-    }
+    </style>
+</head>
+<body>
+    <h2>Unique Paths</h2>
+    <p>This problem would give the user with an mxn grid and the user would have to find the number of unique paths that could be traveled. You could only move down and right.
+        The path could be represented as a string of "rights" and "downs". You could calculate the number of unique permutations that could be made on the string.
+    </p>
+    <p>Language: Python</p>
+    <pre><code>
+        import math
     
-     
-</code></pre>
+        class Solution:
+            def uniquePaths(self, m: int, n: int) -> int:
+                return int(math.factorial(m - 1 + n - 1) / (math.factorial(m - 1) * math.factorial(n - 1)))
+    </code></pre>
+    
+    <h2>TwoSum</h2>
+    <p>Given a list of integers, return the indicies of the two elements that add up to the target. The two numbers that add up to the target cannot be the same.</p>
+    <p>Language: Java</p>
+    <pre><code>
+        import java.util.*;
+    
+        public class TwoSum {
+            public int[] twoSum(int[] nums, int target) {
+                int[] solution = new int[2];
+                List<Integer> indices = new ArrayList<>();
+                // Create HashSet and add elements from list to it
+                Set<Integer> numbers = new HashSet<>();
+    
+                for (int i = 0; i < nums.length; i++) {
+                    numbers.add(nums[i]);
+                    indices.add(nums[i]);
+                    int val1 = nums[i];
+                    int val2 = target - val1;
+                    if (numbers.contains(val2) && indices.indexOf(val2) != i) {
+                        solution[0] = i;
+                        solution[1] = indices.indexOf(val2);
+                        
+                    }
+                }
+                
+                return solution;
+            }
+        }
+    </code></pre>
+    
+    <h2>Rotate Matrix</h2>
+    <p>This program would give a matrix and you would have to rotate it 270 degrees in place. This means that you must directly manipulate the matrix. The matrix is always square.</p>
+    <pre><code>
+        class Solution:
+            def rotate(self, matrix: list[list[int]]) -> None:
+                size = len(matrix)  # Given an n x n matrix
+    
+                # Handles the transposing by swapping values in complementary positions
+                for row in range(size):
+                    for col in range(row+1, size):
+                        matrix[col][row], matrix[row][col] = matrix[row][col], matrix[col][row]
+                
+                # Reverses each row in the matrix with ease because Python
+                for row in range(len(matrix)):
+                    matrix[row] = list(matrix[row])
+                    matrix[row].reverse()
+                return matrix    
+    </code></pre>
+    
+    <h2>Valid Parentheses</h2>
+    <p>This program asks for valid opening and closing parentheses to be present in the given string. To check, I used a stack and added and removed the 
+        opening parentheses when necessary.</p>
+    <p>Language: Java</p>
+    <pre><code>
+        class Solution {
+            public boolean isValid(String s) {
+                // Matching opening and closing brackets
+                Map<Character, Character> matches = new HashMap<>();
+                matches.put('(', ')');
+                matches.put('[', ']');
+                matches.put('{', '}');
+                
+                Stack<Character> parentheses = new Stack<>();
+                for (int i = 0; i < s.length(); i++) {
+                    char character = s.charAt(i);
+                    if (matches.containsKey(character)) {
+                        parentheses.push(character);
+                    } else {
+                        if (parentheses.isEmpty()) {    
+                            return false;   // Returns false if there are no starting parentheses
+                        }
+                        // Removes top element and keeps going until empty
+                        char token = parentheses.pop(); 
+                        if (!matches.containsKey(token) || matches.get(token) != character) {
+                            return false;
+                        }
+                    }
+                }
+                return parentheses.isEmpty();   // Empty stack means that every opening parethesis has a corresponding closing
+            }
+        }
+        
+         
+    </code></pre>
+</body>
+</html>
+
