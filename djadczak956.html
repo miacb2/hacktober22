@@ -13,6 +13,7 @@
 
 <h2>TwoSum</h2>
 <p>Given a list of integers, return the indicies of the two elements that add up to the target. The two numbers that add up to the target cannot be the same.</p>
+<p>Language: Java</p>
 <pre><code>
     import java.util.*;
 
@@ -38,4 +39,23 @@
             return solution;
         }
     }
+</code></pre>
+
+<h2>Rotate Matrix</h2>
+<p>This program would give a matrix and you would have to rotate it 270 degrees in place. This means that you must directly manipulate the matrix. The matrix is always square.</p>
+<pre><code>
+    class Solution:
+        def rotate(self, matrix: list[list[int]]) -> None:
+            size = len(matrix)  # Given an n x n matrix
+
+            # Handles the transposing by swapping values in complementary positions
+            for row in range(size):
+                for col in range(row+1, size):
+                    matrix[col][row], matrix[row][col] = matrix[row][col], matrix[col][row]
+            
+            # Reverses each row in the matrix with ease because Python
+            for row in range(len(matrix)):
+                matrix[row] = list(matrix[row])
+                matrix[row].reverse()
+            return matrix    
 </code></pre>
