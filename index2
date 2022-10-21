@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hactoberfest 2022</title>
+</head>
+<body>
+    <header>
+        <h1>Spooky Algorythms</h1>
+    </header>
+    <h2>Bank.py</h2>
+    <p>Solved by Xayan</p>
+    <p>Based on Season 7 episode 24 of Seineld, return amounts of money based on user input of greeting, A greeting starting with "hello" returns $0, a input with the first char "h" returns $20 and a input of anything else returns $100.</p>
+    <pre><code>
+        e = input("greeting ")
+        f = e.lower().replace(" ","")#funnels user data to no space and gets rid of capital sensitivity
+        if f[:5] == "hello":#checks for hello
+            print("$0")
+        elif f[:1] == "h":#checks for h starting letter
+            print("$20")
+        else:
+        print("$100")
+    </code></pre>
+</body>
+</html>
